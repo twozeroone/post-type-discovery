@@ -1,4 +1,5 @@
 var mf = require('microformat-node');
+var validUrl = require('valid-url');
 
 var getType = function ( html, callback ) {
   var o = { html: html };
@@ -18,6 +19,17 @@ var getType = function ( html, callback ) {
       callback( 'rsvp' );
       return;
     }
+
+    // Reply
+    if (
+      Object.keys( p ).includes( 'in-reply-to' ) &&
+      validUrl.isUri( p[ 'in-reply-to' ][ 0 ] )
+    ) {
+      callback( 'reply' );
+      return;
+    }
+
+    callback( 'note' );
   } );
 };
 
