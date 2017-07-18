@@ -3,7 +3,7 @@ var getType = require('./index.js');
 var fs = require( 'fs' );
 
 var types = {
-  rsvp: [ 'rsvp' ]
+  rsvp: [ 'rsvp-tantek', 'rsvp-aaron' ]
 };
 
 Object.keys( types ).forEach( function ( type ) {
