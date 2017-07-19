@@ -1,9 +1,9 @@
 var mf = require('microformat-node');
 var validUrl = require('valid-url');
 
-var getType = function ( html, callback ) {
-  var o = { html: html };
-  mf.get( o, function ( err,  data ) {
+var getType = ( html, callback ) => {
+  var o = { html };
+  mf.get( o, ( err,  data ) => {
     var p = data.items[ 0 ].properties;
 
     // RSVP
