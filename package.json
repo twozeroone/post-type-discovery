@@ -17,10 +17,10 @@
   },
   "homepage": "https://github.com/twozeroone/post-type-discovery#readme",
   "dependencies": {
-    "microformat-node": "^2.0.1",
     "valid-url": "^1.0.9"
   },
   "devDependencies": {
+    "microformat-node": "^2.0.1",
     "mocha": "^3.4.2"
   }
 }
