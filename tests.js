@@ -5,7 +5,8 @@ var fs = require( 'fs' );
 
 var types = {
   rsvp: [ 'rsvp-tantek', 'rsvp-aaron' ],
-  reply: [ 'reply-aaron' ]
+  reply: [ 'reply-aaron' ],
+  repost: [ 'repost-aaron' ]
 };
 
 Object.keys( types ).forEach( ( type ) => {

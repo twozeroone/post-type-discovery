@@ -26,6 +26,16 @@ var getType = ( mf, callback ) => {
     return;
   }
 
+  // Repost
+  if (
+    Object.keys( p ).includes( 'repost-of' )
+    // TODO: The value could be nested inside
+    // validUrl.isUri( p[ 'repost-of' ][ 0 ] )
+  ) {
+    callback( 'repost' );
+    return;
+  }
+
   callback( 'note' );
 };
 
