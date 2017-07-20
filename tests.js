@@ -7,7 +7,8 @@ var types = {
   rsvp: [ 'rsvp-tantek', 'rsvp-aaron' ],
   reply: [ 'reply-aaron' ],
   repost: [ 'repost-aaron' ],
-  like: [ 'like-aaron' ]
+  like: [ 'like-aaron' ],
+  video: [ 'video-aaron' ]
 };
 
 Object.keys( types ).forEach( ( type ) => {
