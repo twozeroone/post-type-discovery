@@ -51,6 +51,15 @@ var getType = ( mf ) => {
     return 'video';
   }
 
+  // Photo
+  if (
+    Object.keys( p ).includes( 'photo' )
+    // TODO: The value could be nested inside
+    // validUrl.isUri( p[ 'photo' ][ 0 ] )
+  ) {
+    return 'photo';
+  }
+
   return 'note';
 };
 
