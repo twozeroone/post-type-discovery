@@ -36,6 +36,16 @@ var getType = ( mf, callback ) => {
     return;
   }
 
+  // Like
+  if (
+    Object.keys( p ).includes( 'like-of' )
+    // TODO: The value could be nested inside
+    // validUrl.isUri( p[ 'like-of' ][ 0 ] )
+  ) {
+    callback( 'like' );
+    return;
+  }
+
   callback( 'note' );
 };
 
