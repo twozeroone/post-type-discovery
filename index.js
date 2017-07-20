@@ -1,6 +1,6 @@
 var validUrl = require('valid-url');
 
-var getType = ( mf, callback ) => {
+var getType = ( mf ) => {
   var p = mf.items[ 0 ].properties;
 
   // RSVP
@@ -13,8 +13,7 @@ var getType = ( mf, callback ) => {
       p.rsvp.includes( 'interested' )
     )
   ) {
-    callback( 'rsvp' );
-    return;
+    return 'rsvp';
   }
 
   // Reply
@@ -22,8 +21,7 @@ var getType = ( mf, callback ) => {
     Object.keys( p ).includes( 'in-reply-to' ) &&
     validUrl.isUri( p[ 'in-reply-to' ][ 0 ] )
   ) {
-    callback( 'reply' );
-    return;
+    return 'reply';
   }
 
   // Repost
@@ -32,8 +30,7 @@ var getType = ( mf, callback ) => {
     // TODO: The value could be nested inside
     // validUrl.isUri( p[ 'repost-of' ][ 0 ] )
   ) {
-    callback( 'repost' );
-    return;
+    return 'repost';
   }
 
   // Like
@@ -42,11 +39,10 @@ var getType = ( mf, callback ) => {
     // TODO: The value could be nested inside
     // validUrl.isUri( p[ 'like-of' ][ 0 ] )
   ) {
-    callback( 'like' );
-    return;
+    return 'like';
   }
 
-  callback( 'note' );
+  return 'note';
 };
 
 module.exports = getType;
