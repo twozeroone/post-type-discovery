@@ -20,7 +20,6 @@
     "valid-url": "^1.0.9"
   },
   "devDependencies": {
-    "jest": "^20.0.4",
-    "microformat-node": "^2.0.1"
+    "jest": "^20.0.4"
   }
 }

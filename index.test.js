@@ -1,26 +1,29 @@
-var assert = require('assert');
-var mf = require('microformat-node');
 var getType = require('./index.js');
 var fs = require( 'fs' );
 
-var types = {
-  rsvp: [ 'rsvp-tantek', 'rsvp-aaron' ],
-  reply: [ 'reply-aaron' ],
-  repost: [ 'repost-aaron' ],
-  like: [ 'like-aaron' ],
-  video: [ 'video-aaron' ],
-  photo: [ 'photo-aaron' ]
-};
+var tests = {};
 
-Object.keys( types ).forEach( ( type ) => {
-  describe( 'Posts of type - ' + type, () => {
-    types[ type ].forEach( ( file ) => {
-      it( 'should correctly categorize ' + file, ( done ) => {
-        fs.readFile( __dirname + '/tests/' + file + '.html', 'utf-8', ( e ,d ) => {
-          mf.get( { html: d }, ( error, data ) => {
-            expect( getType( data ) ).toBe( type );
-            done();
-          } );
+// Find all the tests
+fs.readdirSync( './tests/' ).forEach( ( file ) => {
+  if (
+    file.indexOf( '.' ) !== 0 &&
+    file.indexOf( 'json' ) !== -1
+  ) {
+    var type = file.split( '-' )[ 0 ];
+    var name = file.split( '-' )[ 1 ].split( '.' )[ 0 ];
+
+    tests[ type ] = tests[ type ] || {};
+    tests[ type ][ name ] = JSON.parse( fs.readFileSync( './tests/' + file, 'utf-8' ) );
+  }
+} );
+
+// Run 'em
+describe( 'Post type discovery tests', () => {
+  Object.keys( tests ).forEach( ( type ) => {
+    describe( 'Type: ' + type, () => {
+      Object.keys( tests[ type ] ).forEach( ( name ) => {
+        it( 'should correctly categorize: ' + name, () => {
+          expect( getType( tests[ type ][ name ] ) ).toEqual( type );
         } );
       } );
     } );
