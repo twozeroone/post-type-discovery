@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset='utf-8' />
-  <title>post-type-discovery 0.0.1 | Documentation</title>
+  <title>post-type-discovery 1.0.0 | Documentation</title>
   <meta name='viewport' content='width=device-width,initial-scale=1'>
   <link href='assets/bass.css' type='text/css' rel='stylesheet' />
   <link href='assets/style.css' type='text/css' rel='stylesheet' />
@@ -14,7 +14,7 @@
       <div class='fixed xs-hide fix-3 overflow-auto max-height-100'>
         <div class='py1 px2'>
           <h3 class='mb0 no-anchor'>post-type-discovery</h3>
-          <div class='mb1'><code>0.0.1</code></div>
+          <div class='mb1'><code>1.0.0</code></div>
           <input
             placeholder='Filter'
             id='filter-input'
@@ -72,7 +72,31 @@
   
     <h1>post-type-discovery</h1>
 <p>A Javascript implementation of the <a href="https://www.w3.org/TR/post-type-discovery/">Post Type Discovery</a> W3C spec.</p>
-<p><a href="https://travis-ci.org/twozeroone/post-type-discovery"><img src="https://travis-ci.org/twozeroone/post-type-discovery.svg?branch=master" alt="Build Status"></a> <a href="http://inch-ci.org/github/twozeroone/post-type-discovery"><img src="http://inch-ci.org/github/twozeroone/post-type-discovery.svg?branch=master" alt="Inline docs"></a> <a href="https://david-dm.org/twozeroone/post-type-discovery?type=dev"><img src="https://david-dm.org/twozeroone/post-type-discovery/dev-status.svg" alt="devDependencies Status"></a> <a href="https://david-dm.org/twozeroone/post-type-discovery"><img src="https://david-dm.org/twozeroone/post-type-discovery/status.svg" alt="dependencies Status"></a></p>
+<p><a href="https://travis-ci.org/twozeroone/post-type-discovery"><img src="https://travis-ci.org/twozeroone/post-type-discovery.svg?branch=master" alt="Build Status"></a> <a href="https://coveralls.io/github/twozeroone/post-type-discovery?branch=master"><img src="https://coveralls.io/repos/github/twozeroone/post-type-discovery/badge.svg?branch=master" alt="Coverage Status"></a> <a href="http://inch-ci.org/github/twozeroone/post-type-discovery"><img src="http://inch-ci.org/github/twozeroone/post-type-discovery.svg?branch=master" alt="Inline docs"></a> <a href="https://david-dm.org/twozeroone/post-type-discovery?type=dev"><img src="https://david-dm.org/twozeroone/post-type-discovery/dev-status.svg" alt="devDependencies Status"></a> <a href="https://david-dm.org/twozeroone/post-type-discovery"><img src="https://david-dm.org/twozeroone/post-type-discovery/status.svg" alt="dependencies Status"></a></p>
+<h3>Installation</h3>
+<p>Use <a href="https://www.npmjs.com/package/post-type-discovery">npm</a> to install:</p>
+<pre><code>npm install post-type-discovery --save
+</code></pre>
+<h3>Usage</h3>
+<p>The library exposes just one method that tells you the type of a post given a parsed microformats JSON.</p>
+<pre class='hljs'><span class="hljs-keyword">var</span> getType = <span class="hljs-built_in">require</span>( <span class="hljs-string">'post-type-discovery'</span> );
+<span class="hljs-keyword">var</span> mf2 = { ...valid mf2 json... };
+
+<span class="hljs-keyword">var</span> type = getType( mf2 );</pre>
+<p>The code is small, easy to read, and <a href="http://post-type-discovery.js.org/">documented</a>.</p>
+<h3>Contributing</h3>
+<p>Feel free to send pull requests, add test cases, and raise issues. To setup a development environment clone the repo and install dependencies.</p>
+<pre><code>$ npm install
+
+# Lint, hint, and run tests
+$ npm test
+
+# Run just the tests while developing
+$ npm run jest -- --watch
+
+# Build the docs
+$ npm run docs
+</code></pre>
 
   
 </section>
