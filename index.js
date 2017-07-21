@@ -4,8 +4,8 @@ var validUrl = require('valid-url');
  * Gets the plain text value from a
  * value mf2 field.
  *
- * @param {Array|Object} value
- * @return {String}
+ * @param {Array|Object} value Item from which value needs to be extracted
+ * @return {String} Extracted value
  */
 var getValue = function ( value ) {
   return value[ 0 ].value || value[ 0 ];
@@ -15,9 +15,9 @@ var getValue = function ( value ) {
  * Strip the content and name of non-alphanumeric
  * characters and check if the content includes the name.
  *
- * @param {String} name
- * @param {String} content
- * @return {Boolean}
+ * @param {String} name Name property of the item
+ * @param {String} content Content property of the item
+ * @return {Boolean} Whether the content includes the name
  */
 var contentIncludesName = function ( name, content ) {
   var trimmedName = name.replace(/\W+/g, ' ');
@@ -28,11 +28,11 @@ var contentIncludesName = function ( name, content ) {
 /**
  * Takes a microformat object and discovers its post type.
  *
- * @param {Object} mf2
- * @return {String}
+ * @param {Object} mf2 Microformat2 object to be checked
+ * @return {String} Type of post
  */
-var getType = function ( mf ) {
-  var prop = mf.items[ 0 ].properties;
+var getType = function ( mf2 ) {
+  var prop = mf2.items[ 0 ].properties;
   var propNames = Object.keys( prop );
 
   // RSVP
