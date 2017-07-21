@@ -18,7 +18,7 @@ Object.keys( types ).forEach( ( type ) => {
       it( 'should correctly categorize ' + file, ( done ) => {
         fs.readFile( __dirname + '/tests/' + file + '.html', 'utf-8', ( e ,d ) => {
           mf.get( { html: d }, ( error, data ) => {
-            assert.equal( getType( data ), type );
+            expect( getType( data ) ).toBe( type );
             done();
           } );
         } );
