@@ -11,16 +11,16 @@ var contentIncludesName = ( name, content ) => {
 };
 
 var getType = ( mf ) => {
-  var p = mf.items[ 0 ].properties;
+  var prop = mf.items[ 0 ].properties;
 
   // RSVP
   if (
-    Object.keys( p ).includes( 'rsvp' ) &&
+    Object.keys( prop ).includes( 'rsvp' ) &&
     (
-      p.rsvp.includes( 'yes' ) ||
-      p.rsvp.includes( 'no' ) ||
-      p.rsvp.includes( 'maybe' ) ||
-      p.rsvp.includes( 'interested' )
+      prop.rsvp.includes( 'yes' ) ||
+      prop.rsvp.includes( 'no' ) ||
+      prop.rsvp.includes( 'maybe' ) ||
+      prop.rsvp.includes( 'interested' )
     )
   ) {
     return 'rsvp';
@@ -28,46 +28,46 @@ var getType = ( mf ) => {
 
   // Reply
   if (
-    Object.keys( p ).includes( 'in-reply-to' ) &&
-    validUrl.isUri( getValue( p[ 'in-reply-to' ] ) )
+    Object.keys( prop ).includes( 'in-reply-to' ) &&
+    validUrl.isUri( getValue( prop[ 'in-reply-to' ] ) )
   ) {
     return 'reply';
   }
 
   // Repost
   if (
-    Object.keys( p ).includes( 'repost-of' ) &&
-    validUrl.isUri( getValue( p[ 'repost-of' ] ) )
+    Object.keys( prop ).includes( 'repost-of' ) &&
+    validUrl.isUri( getValue( prop[ 'repost-of' ] ) )
   ) {
     return 'repost';
   }
 
   // Like
   if (
-    Object.keys( p ).includes( 'like-of' ) &&
-    validUrl.isUri( getValue( p[ 'like-of' ] ) )
+    Object.keys( prop ).includes( 'like-of' ) &&
+    validUrl.isUri( getValue( prop[ 'like-of' ] ) )
   ) {
     return 'like';
   }
 
   // Video
   if (
-    Object.keys( p ).includes( 'video' ) &&
-    validUrl.isUri( getValue( p[ 'video' ] ) )
+    Object.keys( prop ).includes( 'video' ) &&
+    validUrl.isUri( getValue( prop[ 'video' ] ) )
   ) {
     return 'video';
   }
 
   // Photo
   if (
-    Object.keys( p ).includes( 'photo' ) &&
-    validUrl.isUri( getValue( p[ 'photo' ] ) )
+    Object.keys( prop ).includes( 'photo' ) &&
+    validUrl.isUri( getValue( prop[ 'photo' ] ) )
   ) {
     return 'photo';
   }
 
-  var name = getValue( p.name );
-  var content = getValue( p.content ) || getValue( p.summary );
+  var name = getValue( prop.name );
+  var content = getValue( prop.content ) || getValue( prop.summary );
 
   if (
     content !== undefined &&
