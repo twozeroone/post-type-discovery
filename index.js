@@ -29,43 +29,39 @@ var getType = ( mf ) => {
   // Reply
   if (
     Object.keys( p ).includes( 'in-reply-to' ) &&
-    validUrl.isUri( p[ 'in-reply-to' ][ 0 ] )
+    validUrl.isUri( getValue( p[ 'in-reply-to' ] ) )
   ) {
     return 'reply';
   }
 
   // Repost
   if (
-    Object.keys( p ).includes( 'repost-of' )
-    // TODO: The value could be nested inside
-    // validUrl.isUri( p[ 'repost-of' ][ 0 ] )
+    Object.keys( p ).includes( 'repost-of' ) &&
+    validUrl.isUri( getValue( p[ 'repost-of' ] ) )
   ) {
     return 'repost';
   }
 
   // Like
   if (
-    Object.keys( p ).includes( 'like-of' )
-    // TODO: The value could be nested inside
-    // validUrl.isUri( p[ 'like-of' ][ 0 ] )
+    Object.keys( p ).includes( 'like-of' ) &&
+    validUrl.isUri( getValue( p[ 'like-of' ] ) )
   ) {
     return 'like';
   }
 
   // Video
   if (
-    Object.keys( p ).includes( 'video' )
-    // TODO: The value could be nested inside
-    // validUrl.isUri( p[ 'video' ][ 0 ] )
+    Object.keys( p ).includes( 'video' ) &&
+    validUrl.isUri( getValue( p[ 'video' ] ) )
   ) {
     return 'video';
   }
 
   // Photo
   if (
-    Object.keys( p ).includes( 'photo' )
-    // TODO: The value could be nested inside
-    // validUrl.isUri( p[ 'photo' ][ 0 ] )
+    Object.keys( p ).includes( 'photo' ) &&
+    validUrl.isUri( getValue( p[ 'photo' ] ) )
   ) {
     return 'photo';
   }
