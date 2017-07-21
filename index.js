@@ -4,6 +4,7 @@ var validUrl = require('valid-url');
  * Gets the plain text value from a
  * value mf2 field.
  *
+ * @private
  * @param {Array|Object} value Item from which value needs to be extracted
  * @return {String} Extracted value
  */
@@ -15,6 +16,7 @@ var getValue = function ( value ) {
  * Strip the content and name of non-alphanumeric
  * characters and check if the content includes the name.
  *
+ * @private
  * @param {String} name Name property of the item
  * @param {String} content Content property of the item
  * @return {Boolean} Whether the content includes the name

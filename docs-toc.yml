@@ -1,0 +1,5 @@
+toc:
+  - name: Introduction
+    file: README.md
+  - name: API
+  - getValue

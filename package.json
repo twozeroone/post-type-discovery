@@ -7,7 +7,8 @@
     "test": "npm run lint && npm run hint &&  npm run jest",
     "jest": "jest",
     "lint": "eslint index.js index.test.js",
-    "hint": "jshint index.js index.test.js"
+    "hint": "jshint index.js index.test.js",
+    "docs": "documentation build index.js -f html -o docs -c docs-toc.yml"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,7 @@
     "valid-url": "^1.0.9"
   },
   "devDependencies": {
+    "documentation": "^4.0.0-rc.1",
     "eslint": "^4.3.0",
     "expect": "^1.20.2",
     "jest": "^20.0.4",
