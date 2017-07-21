@@ -1,15 +1,36 @@
 var validUrl = require('valid-url');
 
+/**
+ * Gets the plain text value from a
+ * value mf2 field.
+ *
+ * @param {Array|Object} value
+ * @return {String}
+ */
 var getValue = function ( value ) {
   return value[ 0 ].value || value[ 0 ];
 };
 
+/**
+ * Strip the content and name of non-alphanumeric
+ * characters and check if the content includes the name.
+ *
+ * @param {String} name
+ * @param {String} content
+ * @return {Boolean}
+ */
 var contentIncludesName = function ( name, content ) {
   var trimmedName = name.replace(/\W+/g, ' ');
   var trimmedContent = content.replace(/\W+/g, ' ');
   return ( trimmedContent.indexOf( trimmedName ) !== -1 );
 };
 
+/**
+ * Takes a microformat object and discovers its post type.
+ *
+ * @param {Object} mf2
+ * @return {String}
+ */
 var getType = function ( mf ) {
   var prop = mf.items[ 0 ].properties;
   var propNames = Object.keys( prop );
