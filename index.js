@@ -1,5 +1,15 @@
 var validUrl = require('valid-url');
 
+var getValue = ( value ) => {
+  return value[ 0 ].value || value[ 0 ];
+};
+
+var contentIncludesName = ( name, content ) => {
+  name = name.replace(/\W+/g, ' ');
+  content = content.replace(/\W+/g, ' ');
+  return ( content.indexOf( name ) !== -1 );
+};
+
 var getType = ( mf ) => {
   var p = mf.items[ 0 ].properties;
 
@@ -58,6 +68,17 @@ var getType = ( mf ) => {
     // validUrl.isUri( p[ 'photo' ][ 0 ] )
   ) {
     return 'photo';
+  }
+
+  var name = getValue( p.name );
+  var content = getValue( p.content ) || getValue( p.summary );
+
+  if (
+    content !== undefined &&
+    name !== undefined &&
+    !contentIncludesName( name, content )
+  ) {
+    return 'article';
   }
 
   return 'note';
