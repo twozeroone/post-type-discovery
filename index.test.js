@@ -1,5 +1,6 @@
-var getType = require('./index.js');
 var fs = require( 'fs' );
+var expect = require( 'expect' );
+var getType = require('./index.js');
 
 var tests = {};
 

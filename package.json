@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "npm run lint && npm run jest",
+    "jest": "jest",
+    "lint": "eslint index.js index.test.js"
   },
   "repository": {
     "type": "git",
@@ -20,6 +22,8 @@
     "valid-url": "^1.0.9"
   },
   "devDependencies": {
+    "eslint": "^4.3.0",
+    "expect": "^1.20.2",
     "jest": "^20.0.4"
   }
 }

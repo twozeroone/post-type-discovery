@@ -1,16 +1,16 @@
 var validUrl = require('valid-url');
 
-var getValue = ( value ) => {
+var getValue = function ( value ) {
   return value[ 0 ].value || value[ 0 ];
 };
 
-var contentIncludesName = ( name, content ) => {
-  name = name.replace(/\W+/g, ' ');
-  content = content.replace(/\W+/g, ' ');
-  return ( content.indexOf( name ) !== -1 );
+var contentIncludesName = function ( name, content ) {
+  var trimmedName = name.replace(/\W+/g, ' ');
+  var trimmedContent = content.replace(/\W+/g, ' ');
+  return ( trimmedContent.indexOf( trimmedName ) !== -1 );
 };
 
-var getType = ( mf ) => {
+var getType = function ( mf ) {
   var prop = mf.items[ 0 ].properties;
   var propNames = Object.keys( prop );
 
@@ -36,7 +36,7 @@ var getType = ( mf ) => {
     'photo': 'photo'
   };
 
-  var matches = Object.keys( propToType ).filter( ( propName ) => {
+  var matches = Object.keys( propToType ).filter( function ( propName ) {
     return (
       propNames.includes( propName ) &&
       validUrl.isUri( getValue( prop[ propName ] ) )
