@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npm run lint && npm run hint &&  npm run jest",
+    "test": "npm run lint && npm run hint &&  ./node_modules/.bin/jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "jest": "jest",
     "lint": "eslint index.js index.test.js",
     "hint": "jshint index.js index.test.js",
@@ -24,6 +24,7 @@
     "valid-url": "^1.0.9"
   },
   "devDependencies": {
+    "coveralls": "^2.13.1",
     "documentation": "^4.0.0-rc.1",
     "eslint": "^4.3.0",
     "expect": "^1.20.2",
