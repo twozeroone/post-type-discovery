@@ -18,8 +18,11 @@ The library exposes just one method that tells you the type of a post given a pa
 
 ```js
 var getType = require( 'post-type-discovery' );
-var mf2 = { ...valid mf2 json... };
 
+// You can get parsed mf2 using a library like microformat-shiv, or microformat-node
+var mf2 = {"items":[{"type":["h-entry"],"properties":{"author":[{"type":["h-card"],"properties":{"name":["Tantek \u00c7elik"],"photo":["http://tantek.com/logo.jpg"],"url":["http://tantek.com/"]},"value":"Tantek \u00c7elik"}],"name":["\ud83d\udcd5 started reading \u201cThe Eight Limbs of Yoga\u201d by Stuart Ray Sarbacker and Kevin Kimple. tantek.com/isbn/086547768X #yoga"],"category":["yoga"],"url":["http://tantek.com/2017/200/t1/started-eight-limbs-of-yoga"],"uid":["http://tantek.com/2017/200/t1/started-eight-limbs-of-yoga"],"syndication":["https://twitter.com/t/status/887903244676214784"],"published":["2017-07-19T22:08-0700"],"updated":["2017-07-19T22:08-0700"],"content":[{"html":"\ud83d\udcd5 started reading \u201cThe Eight Limbs of Yoga\u201d by Stuart Ray Sarbacker and Kevin Kimple. <a class=\"auto-link\" href=\"http://tantek.com/isbn/086547768X\">tantek.com/isbn/086547768X</a> #<span class=\"p-category auto-tag\">yoga</span>","value":"\ud83d\udcd5 started reading \u201cThe Eight Limbs of Yoga\u201d by Stuart Ray Sarbacker and Kevin Kimple. tantek.com/isbn/086547768X #yoga"}]}}]};
+
+// Get the post type
 var type = getType( mf2 );
 ```
 
