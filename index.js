@@ -71,7 +71,7 @@ var getType = function ( mf2 ) {
   }
 
   // Are content and name the same?
-  var name = getValue( prop.name );
+  var name = prop.name ? getValue( prop.name ) : undefined;
   var content = getValue( prop.content ) || getValue( prop.summary );
 
   if (
