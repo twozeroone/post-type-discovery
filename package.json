@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/twozeroone/post-type-discovery#readme",
   "dependencies": {
+    "html-to-text": "^4.0.0",
     "valid-url": "^1.0.9"
   },
   "devDependencies": {
