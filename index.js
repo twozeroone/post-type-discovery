@@ -1,4 +1,21 @@
+var htmlToText = require('html-to-text');
 var validUrl = require('valid-url');
+
+/**
+ * Gets the plain text value from a
+ * html value mf2 field.
+ *
+ * @private
+ * @param {Array|Object} html Item from which value needs to be extracted
+ * @return {String} Extracted value
+ */
+var getHtmlValue = function ( html ) {
+  return htmlToText.fromString(html, {
+    ignoreHref: true,
+    uppercaseHeadings: false,
+    wordwrap: false
+  });
+};
 
 /**
  * Gets the plain text value from a
@@ -9,7 +26,7 @@ var validUrl = require('valid-url');
  * @return {String} Extracted value
  */
 var getValue = function ( value ) {
-  return value[ 0 ].value || value[ 0 ];
+  return value[ 0 ].value || getHtmlValue(value[ 0 ].html) || value[ 0 ];
 };
 
 /**
