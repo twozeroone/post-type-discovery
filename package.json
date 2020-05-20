@@ -20,6 +20,11 @@
     "url": "https://github.com/twozeroone/post-type-discovery/issues"
   },
   "homepage": "https://github.com/twozeroone/post-type-discovery#readme",
+  "files": [
+    "/README.md",
+    "/index.js",
+    "/LICENSE"
+  ],
   "dependencies": {
     "html-to-text": "^4.0.0",
     "valid-url": "^1.0.9"
