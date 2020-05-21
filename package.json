@@ -19,7 +19,7 @@
   "bugs": {
     "url": "https://github.com/twozeroone/post-type-discovery/issues"
   },
-  "homepage": "https://github.com/twozeroone/post-type-discovery#readme",
+  "homepage": "https://post-type-discovery.js.org/",
   "files": [
     "/README.md",
     "/index.js",

@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset='utf-8' />
-  <title>post-type-discovery 1.0.0 | Documentation</title>
+  <title>post-type-discovery 1.0.3 | Documentation</title>
   <meta name='viewport' content='width=device-width,initial-scale=1'>
   <link href='assets/bass.css' type='text/css' rel='stylesheet' />
   <link href='assets/style.css' type='text/css' rel='stylesheet' />
@@ -14,7 +14,7 @@
       <div class='fixed xs-hide fix-3 overflow-auto max-height-100'>
         <div class='py1 px2'>
           <h3 class='mb0 no-anchor'>post-type-discovery</h3>
-          <div class='mb1'><code>1.0.0</code></div>
+          <div class='mb1'><code>1.0.3</code></div>
           <input
             placeholder='Filter'
             id='filter-input'
@@ -80,8 +80,11 @@
 <h3>Usage</h3>
 <p>The library exposes just one method that tells you the type of a post given a parsed microformats JSON.</p>
 <pre class='hljs'><span class="hljs-keyword">var</span> getType = <span class="hljs-built_in">require</span>( <span class="hljs-string">'post-type-discovery'</span> );
-<span class="hljs-keyword">var</span> mf2 = { ...valid mf2 json... };
 
+<span class="hljs-comment">// You can get parsed mf2 using a library like microformat-shiv, or microformat-node</span>
+<span class="hljs-keyword">var</span> mf2 = {<span class="hljs-string">"items"</span>:[{<span class="hljs-string">"type"</span>:[<span class="hljs-string">"h-entry"</span>],<span class="hljs-string">"properties"</span>:{<span class="hljs-string">"author"</span>:[{<span class="hljs-string">"type"</span>:[<span class="hljs-string">"h-card"</span>],<span class="hljs-string">"properties"</span>:{<span class="hljs-string">"name"</span>:[<span class="hljs-string">"Tantek \u00c7elik"</span>],<span class="hljs-string">"photo"</span>:[<span class="hljs-string">"http://tantek.com/logo.jpg"</span>],<span class="hljs-string">"url"</span>:[<span class="hljs-string">"http://tantek.com/"</span>]},<span class="hljs-string">"value"</span>:<span class="hljs-string">"Tantek \u00c7elik"</span>}],<span class="hljs-string">"name"</span>:[<span class="hljs-string">"\ud83d\udcd5 started reading \u201cThe Eight Limbs of Yoga\u201d by Stuart Ray Sarbacker and Kevin Kimple. tantek.com/isbn/086547768X #yoga"</span>],<span class="hljs-string">"category"</span>:[<span class="hljs-string">"yoga"</span>],<span class="hljs-string">"url"</span>:[<span class="hljs-string">"http://tantek.com/2017/200/t1/started-eight-limbs-of-yoga"</span>],<span class="hljs-string">"uid"</span>:[<span class="hljs-string">"http://tantek.com/2017/200/t1/started-eight-limbs-of-yoga"</span>],<span class="hljs-string">"syndication"</span>:[<span class="hljs-string">"https://twitter.com/t/status/887903244676214784"</span>],<span class="hljs-string">"published"</span>:[<span class="hljs-string">"2017-07-19T22:08-0700"</span>],<span class="hljs-string">"updated"</span>:[<span class="hljs-string">"2017-07-19T22:08-0700"</span>],<span class="hljs-string">"content"</span>:[{<span class="hljs-string">"html"</span>:<span class="hljs-string">"\ud83d\udcd5 started reading \u201cThe Eight Limbs of Yoga\u201d by Stuart Ray Sarbacker and Kevin Kimple. &lt;a class=\"auto-link\" href=\"http://tantek.com/isbn/086547768X\"&gt;tantek.com/isbn/086547768X&lt;/a&gt; #&lt;span class=\"p-category auto-tag\"&gt;yoga&lt;/span&gt;"</span>,<span class="hljs-string">"value"</span>:<span class="hljs-string">"\ud83d\udcd5 started reading \u201cThe Eight Limbs of Yoga\u201d by Stuart Ray Sarbacker and Kevin Kimple. tantek.com/isbn/086547768X #yoga"</span>}]}}]};
+
+<span class="hljs-comment">// Get the post type</span>
 <span class="hljs-keyword">var</span> type = getType( mf2 );</pre>
 <p>The code is small, easy to read, and <a href="http://post-type-discovery.js.org/">documented</a>.</p>
 <h3>Contributing</h3>
